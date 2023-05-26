@@ -1,2 +1,4 @@
-[apache]
+#server_name
+[apache] 
+#server_ip
 192.168.161.64
