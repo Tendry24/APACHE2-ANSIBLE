@@ -1,0 +1,25 @@
+---
+- name: Copy Apache configuration file for each domain
+  template:
+    src: apache.conf.j2
+    dest: "/etc/apache2/sites-available/{{ item }}.conf"
+  loop: "{{ apache_domains }}"
+  notify:
+    - Restart Apache
+
+- name: "Disable default virtual host"
+  apache2_module:
+    state: absent
+    name: 000-default
+  notify:
+    - Restart Apache
+
+- name: "Enable Apache service"
+  service:
+    name: apache2
+    enabled: yes
+
+- name: "Restart Apache"
+  service:
+    name: apache2
+    state: restarted

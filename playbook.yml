@@ -1,0 +1,41 @@
+---
+- name: Configure Apache
+  hosts: apache
+  become: true
+  tasks:
+    - name: Install Apache
+      apt:
+        name: apache2
+        state: present
+      notify:
+        - Start Apache
+
+    - name: Configure domain1
+      include_role:
+        name: apache
+      vars:
+        apache_domain: www.hei.school
+
+    - name: Configure domain2
+      include_role:
+        name: apache
+      vars:
+        apache_domain: front.hei.school
+
+    - name: Configure domain3
+      include_role:
+        name: apache
+      vars:
+        apache_domain: back.hei.school
+
+    - name: Configure domain4
+      include_role:
+        name: apache
+      vars:
+        apache_domain: api.hei.school
+
+  handlers:
+  - name: Restart Apache
+    service:
+      name: apache2
+      state: restarted
