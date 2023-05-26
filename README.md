@@ -16,5 +16,7 @@
 
 
 ### Then , copy all the scripts into their specific files
+
+### !the domain names are just examples 
  
 # **see you soon ...**
