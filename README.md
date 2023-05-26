@@ -18,5 +18,7 @@
 ### Then , copy all the scripts into their specific files
 
 ### !the domain names are just examples 
+
+#### we can have many server if we want in hosts file
  
 # **see you soon ...**
