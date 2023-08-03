@@ -19,6 +19,6 @@
 
 ### !the domain names are just examples 
 
-#### we can have many server if we want in hosts file
+#### we can have many server if you want in hosts file
  
 # **see you soon ...**
